@@ -75,12 +75,10 @@
 		onLoad() {
 			this.getNoticeList();
 			this.getNewsList();
-			this.getUserInfo();
 		},
 		onPullDownRefresh() {
 			this.getNoticeList();
 			this.getNewsList();
-			this.getUserInfo();
 
 			//监听下拉刷新动作的执行方法，每次手动下拉刷新都会执行一次
 			setTimeout(function() {
@@ -136,33 +134,6 @@
 			jumpWalletPage() {
 				uni.navigateTo({
 					url: '/pages/user/wallet'
-				})
-			},
-			//获取用户信息
-			getUserInfo() {
-				this.$api.getUserInfo({}, (res) => {
-					if (res.data.type == 'ok') {
-						this.userAssetInfo = res.data.message;
-						console.log('this.userAssetInfo',this.userAssetInfo)
-						let data = res.data.message
-						if (data.okaccount == "") {
-							uni.showModal({
-								title: '提示',
-								content: '请绑定ok账号',
-								showCancel: false,
-								success: (val) => {
-									if (val.confirm) {
-										console.log('用户点击确定');
-										uni.navigateTo({
-											url: "/pages/user/okCode"
-										})
-									} else if (res.cancel) {
-										console.log('用户点击取消');
-									}
-								}
-							});
-						}
-					}
 				})
 			}
 		}

@@ -8,18 +8,15 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "PCD矿厂",
-				"enablePullDownRefresh": true,
-				"app-plus": {
-					"titleNView": false
-				}
+				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
+				"enablePullDownRefresh": true
 			}
 		},
 		// 资讯详情
 		{
 			"path": "pages/index/newsDetail",
 			"style": {
-				"navigationBarTitleText": "资讯详情"
+				"enablePullDownRefresh": true
 			}
 		},
 
@@ -29,10 +26,19 @@
 		{
 			"path": "pages/market/index",
 			"style": {
+				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
+				"enablePullDownRefresh": true
+			}
+		},
+		// 矿场
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						"buttons": [{
-							"text": "行情",
+							"text": "矿场",
 							"float": "left",
 							"fontSize": "16",
 							"fontWeight": "bold"
@@ -41,19 +47,32 @@
 				}
 			}
 		},
-		// 矿场
+		// 加入矿池
 		{
-			"path": "pages/mine/index",
-			"style": {}
+			"path": "pages/mine/joinOrePool",
+			"style": {
+				"navigationBarTitleText": "加入矿池",
+				"enablePullDownRefresh": true
+			}
 		},
 		
 		// --------------------------- 用户信息相关页面 -------------------------
 		
-		// 用户信息首页
+		// 我的页面
 		{
 			"path": "pages/user/index",
 			"style": {
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"text": "我的",
+							"float": "left",
+							"fontSize": "16",
+							"fontWeight": "bold"
+						}]
+					}
+				}
 			}
 		},
 		// ok码绑定页面
@@ -148,6 +167,7 @@
 		{
 			"path": "pages/login/index",
 			"style": {
+				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
 		},
@@ -198,7 +218,7 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}

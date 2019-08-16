@@ -103,7 +103,7 @@
 				this.isShow02 = !this.isShow02;
 			},
 			login() {
-				uni.redirectTo({
+				uni.reLaunch({
 					url: '/pages/login/index'
 				})
 			},

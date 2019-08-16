@@ -48,7 +48,6 @@
 </script>
 
 <style>
-	@import url('../../static/css/main.css');
 	page{
 		background: #fff;
 	}

@@ -118,6 +118,26 @@ export default {
 		http('/user_pool_lists','GET',param,callback)
 	},
 	
+	// 加入矿场
+	joinOrePool(param,callback){
+		http('/user/addUserPool','POST',param,callback)
+	},
+	
+	// 加入矿池的最小数值
+	getOrePoolMinNumber(param,callback){
+		http('/mini_join_num','POST',param,callback)
+	},
+	
+	// 退出矿池
+	exitOrePool(param,callback){
+		http('/user/turnOutInvestment','POST',param,callback)
+	},
+	
+	// 获取矿池总量
+	getOrePoolSum(param,callback){
+		http('/field/detail','GET',param,callback)
+	},
+	
 	/**
 	 * 获取公告: c_id:10
 	 * 获取资讯: c_id:9

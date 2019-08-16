@@ -59,7 +59,7 @@
 			},
 			join(id) {
 				uni.navigateTo({
-					url: '/pages/index/join?id=' + id
+					url: '/pages/mine/joinOrePool?id=' + id
 				})
 			},
 			getNum() {
