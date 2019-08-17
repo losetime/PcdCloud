@@ -1,0 +1,2 @@
+setCssToHead(["body{ background: #fff; }\n.",[1],"wrap{ width: 100%; height: 100%; background: #fff; }\n.",[1],"bgImg{ top: 0; left: 0; }\n.",[1],"bgInp{ background: #f5f5f5; }\n.",[1],"icon_ice{ width: ",[0,36],"; height: ",[0,16],"; }\nwx-uni-page-wrapper{ height: 100%important; }\nwx-input{ width: 100%; }\n",],undefined,{path:"./pages/login/index.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/login/index.wxml') } }));

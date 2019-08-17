@@ -67,9 +67,9 @@
 	export default {
 		data() {
 			return {
-				announcementList:[], // 公告列表
+				announcementList: [], // 公告列表
 				newsList: [], // 资讯列表
-				userAssetInfo:{} // 用户资产信息
+				userAssetInfo: {} // 用户资产信息
 			}
 		},
 		onLoad() {
@@ -93,12 +93,10 @@
 			},
 			//公告列表
 			getNoticeList() {
-				uni.showLoading()
 				this.$api.getAnnouncementList({
 					page: this.page,
 					c_id: 10
 				}, (res) => {
-					uni.hideLoading();
 					if (res.data.type == 'ok') {
 						if (res.data.message.data.length > 0) {
 							this.announcementList = res.data.message.data;
@@ -108,12 +106,10 @@
 			},
 			//资讯列表
 			getNewsList() {
-				uni.showLoading()
 				this.$api.getAnnouncementList({
 					page: this.page,
 					c_id: 9
 				}, (res) => {
-					uni.hideLoading();
 					if (res.data.type == 'ok') {
 						if (res.data.message.data.length > 0) {
 							this.newsList = res.data.message.data;
@@ -133,7 +129,8 @@
 			},
 			jumpWalletPage() {
 				uni.navigateTo({
-					url: '/pages/user/wallet'
+					// url: '/pages/user/wallet'
+					url: '/pages/subnvue/subnvue'
 				})
 			}
 		}

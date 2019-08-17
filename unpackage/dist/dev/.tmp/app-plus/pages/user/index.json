@@ -1,0 +1,14 @@
+{
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "我的",
+        "float": "left",
+        "fontSize": "16",
+        "fontWeight": "bold"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

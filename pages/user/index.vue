@@ -111,7 +111,6 @@
 			this.getVersion();
 		},
 		onLoad() {
-
 			uni.startPullDownRefresh();
 		},
 		onPullDownRefresh() {
@@ -205,7 +204,6 @@
 						if (this.msg.is_miners == 0) {
 							this.showkg = true
 						}
-
 					}
 				})
 			},

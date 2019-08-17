@@ -2,11 +2,11 @@
 	<view class="plr10">
 		<view class="flex alcenter around ban01 white" style="background-image: url(../../static/img/ban01.png);">
 			<view class="tc">
-				<view class="ft12 mb10">矿工 {{round(msg.change_balance,2)}} PCD</view>
+				<view class="ft12 mb10">可用 {{round(msg.change_balance,2)}} PCD</view>
 				<view class="ft18 bold">≈ {{round(msg.change_balance*msg.cnyRate*msg.pcdUsd,2)}} CNY</view>
 			</view>
 			<view class="tc">
-				<view class="ft12 mb10">持币{{round(msg.lock_change_balance,2)}} PCD</view>
+				<view class="ft12 mb10">挖矿 {{round(msg.lock_change_balance,2)}} PCD</view>
 				<view class="ft18 bold">≈ {{round(msg.lock_change_balance*msg.cnyRate*msg.pcdUsd,2)}} CNY</view>
 			</view>
 		</view>

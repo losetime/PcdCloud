@@ -2,6 +2,13 @@
 	//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	"pages": [ 
 		
+		{
+			"path": "pages/login/index2",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": ""
+			}
+		},
 		// --------------------------- 资讯相关页面 -------------------------
 		
 		// 资讯首页
@@ -160,6 +167,16 @@
 			}
 		},
 		
+		// ---------------------------   更新  --------------------------------
+		
+		
+		// 更新页面
+		{
+			"path": "pages/update/index",
+			"style": {
+				"navigationBarTitleText": "更新"
+			}
+		},
 		
 		// ---------------------------   账户相关页面  -------------------------
 		
@@ -185,7 +202,7 @@
 				"navigationBarTitleText": "注册账号"
 			}
 		}
-	],
+    ],
 	"tabBar": {
 		"backgroundColor": "#FFFFFF",
 		"color": "#999999",

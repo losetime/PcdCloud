@@ -1,0 +1,24 @@
+
+.card {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.card01 {
+	background: -webkit-linear-gradient(left, #7580FF, #8FA2F9);
+}
+.card02 {
+	background: -webkit-linear-gradient(left, #569AFE, #4981F2);
+}
+.card03 {
+	background: -webkit-linear-gradient(left, #717DFA, #5396FE);
+}
+.banner {
+	background: top center no-repeat;
+	width: 100%;
+	height: 100rpx;
+	background-size: 100%;
+}
+.news {
+	height: 40rpx;
+}
+

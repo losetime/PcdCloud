@@ -1,0 +1,116 @@
+.title-right-top {
+		width: 36upx;
+		height: 36upx;
+		margin: 0 auto;
+	}
+
+	.title-right-top image {
+		width: 36upx;
+		height: 36upx;
+	}
+
+	.title-cneterb-bottom,
+	.title-right-bottom {
+		font-size: 18upx;
+		color: rgba(255, 255, 255, 1);
+	}
+	.title-cneterb{
+	margin-left: 33upx;
+	}
+	.title-right{
+		margin-left: 22upx;
+	}
+	.title-cneterb-top image {
+		width: 30upx;
+		height: 36upx;
+	}
+
+	.title-cneterb-top {
+		width: 30upx;
+		height: 36upx;
+		margin: 0 auto;
+	}
+
+	.title-cneterb {}
+
+	.title-cnetera {
+		width: 478upx;
+		height: 66upx;
+		background: rgba(245, 245, 245, 1);
+		border-radius: 33upx;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		margin-left: 21upx;
+	}
+	.title-cnetera-right-i,
+	.title-cnetera-right-i-p {
+		font-size: 24upx;
+		color: rgba(126, 126, 126, 1);
+		margin-left: 16upx;
+	}
+	.title-cnetera-left {
+		width: 34upx;
+		height: 34upx;
+		margin-left: 20upx;
+	}
+
+	.title-cnetera-left image {
+		width: 34upx;
+		height: 34upx;
+		display: block;
+	}
+
+	.title-left {
+		width: 65upx;
+		height: 60upx;
+		margin-left: 23upx;
+	}
+
+	.title-left image {
+		width: 65upx;
+		height: 60upx;
+	}
+
+	.title {
+		width: 750upx;
+		height: 86upx;
+		background: rgba(85, 150, 250, 1);
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	.hotBot-right {
+		padding: 0 12upx;
+		height: 36upx;
+		text-align: center;
+		line-height: 36upx;
+		box-sizing: border-box;
+		font-size: 24upx;
+		color: rgba(126, 126, 126, 1);
+		background: rgba(245, 245, 245, 1);
+		border-radius: 8upx;
+		margin-left: 12upx;
+	}
+	
+	.hotBot-left {
+		font-size: 28upx;
+		color: rgba(51, 51, 51, 1);
+		margin-left: 20upx;
+		font-family: PingFang-SC-Bold;
+		font-weight: bold;
+	}
+	
+	.hotBot {
+		width: 750upx;
+		height: 82upx;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	.title-cneterb-bottom,.title-right-bottom{
+		margin-top: 5upx;
+	}

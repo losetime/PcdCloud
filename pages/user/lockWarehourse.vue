@@ -28,11 +28,18 @@
 			lockWarehourseConfirm() {
 				if (this.needLockNumber == '') {
 					uni.showToast({
-						title:'请输入数量',
+						title:'请输入锁仓数量',
 						icon:'none'
 					});
 					return;
 				};
+				if (this.needLockNumber < 50) {
+					uni.showToast({
+						title:'锁仓数量不能小于50枚',
+						icon:'none'
+					});
+					return;
+				}
 				uni.showLoading();
 				this.$api.lockWarehourse({
 					number: this.needLockNumber

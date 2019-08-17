@@ -1,0 +1,14 @@
+
+.pages-mine-security{
+	background: #F5F5F5;
+}
+.bgCard{
+	background: #1C1F26;
+}
+.bdb_c{
+	border-bottom: 1px solid #474A52;
+}
+.bd_cor{
+	border-color: rgba(71, 74, 82, .3);
+}
+

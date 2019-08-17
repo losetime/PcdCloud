@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"icon_right { width: ",[0,20],"; display: block; }\n",],undefined,{path:"./pages/user/help.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/help.wxml') } }));

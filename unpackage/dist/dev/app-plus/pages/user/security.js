@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"pages-mine-security{ background: #F5F5F5; }\n.",[1],"bgCard{ background: #1C1F26; }\n.",[1],"bdb_c{ border-bottom: 1px solid #474A52; }\n.",[1],"bd_cor{ border-color: rgba(71, 74, 82, .3); }\n",],undefined,{path:"./pages/user/security.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/security.wxml') } }));

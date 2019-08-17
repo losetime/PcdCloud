@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/login/index2",
+    "pages/index/index",
+    "pages/index/newsDetail",
+    "pages/market/index",
+    "pages/mine/index",
+    "pages/mine/joinOrePool",
+    "pages/user/index",
+    "pages/user/okCode",
+    "pages/user/wallet",
+    "pages/user/contactUs",
+    "pages/user/security",
+    "pages/user/updatePass",
+    "pages/user/extract",
+    "pages/user/invite",
+    "pages/user/apply",
+    "pages/user/unlockWarehourse",
+    "pages/user/lockWarehourse",
+    "pages/user/income",
+    "pages/user/help",
+    "pages/update/index",
+    "pages/login/index",
+    "pages/login/forgetPass",
+    "pages/login/register"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "color": "#999999",
+    "selectedColor": "#215EEA",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/img/footer/home.png",
+        "selectedIconPath": "/static/img/footer/home_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/market/index",
+        "iconPath": "/static/img/footer/market.png",
+        "selectedIconPath": "/static/img/footer/market_selected.png",
+        "text": "行情"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "/static/img/footer/mine.png",
+        "selectedIconPath": "/static/img/footer/mine_selected.png",
+        "text": "矿场"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "/static/img/footer/user.png",
+        "selectedIconPath": "/static/img/footer/user_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "nvueCompiler": "weex",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "PcdCloud",
+  "compilerVersion": "2.2.2",
+  "usingComponents": {}
+}

@@ -27,9 +27,9 @@
 				<input v-if="!isShow" type="password"  v-model="psw"  class="ft14 ptb3 plr10" placeholder="请输入密码" />
 				<input  v-if="isShow" type="'text'"  v-model="psw" class="ft14 ptb3 plr10" placeholder="请输入密码" />
 				</view>
-				<!-- <image class="icon_ice mr10" @click="showPsw" :src="isShow?'/static/img/icon_ice02.png':'/static/img/icon_ice01.png'"></image> -->
+				<!-- <image class="icon_ice mr10" @click="showPass" :src="isShow?'/static/img/icon_ice02.png':'/static/img/icon_ice01.png'"></image> -->
 			</view> 
-			<view class="w100 tc ptb12 ft16 mt30 mauto radius4 white" style="background: #0A89EB;" @click="login">登录</view>
+			<view class="w100 tc ptb12 ft16 mt30 mauto radius4 white" style="background: #0A89EB;" @click="onLoginBtn">登录</view>
 			<!-- <view class="w100 tc ptb12 ft16 mt10 bgGrayBtn bgInp radius4  mauto" @click="register">注册</view> -->
 			<view class="flex alcenter between cor_blue" style="margin-top: 30upx;">
 				<view class=" ft14" @click="forgetPass">忘记密码</view>
@@ -58,21 +58,30 @@
 			this.getUserInfo();
 		},
 		methods:{
-			showPsw(){
+			showPass(){
 				this.isShow = !this.isShow;
 			},
 			//选择区号
 			changeCountry(e){
 				this.val = e.target.value;
 			},
+			
+			// 跳转注册账号页面
 			register(){
-				uni.redirectTo({
+				uni.navigateTo({
 					url:'/pages/login/register'
 				})
 			},
+			
+			// 跳转忘记密码页面
+			forgetPass(){
+				uni.navigateTo({
+					url:'/pages/login/forgetPass'
+				})
+			},
+			
 			// 登录
-			login(){
-				var that = this;
+			onLoginBtn(){
 				if(this.account == ''){
 					uni.showToast({
 						title:'请输入手机号',
@@ -88,34 +97,23 @@
 					return;
 				};
 				
-				uni.showLoading();
+				uni.showLoading({
+				    title: '登录中...'
+				});
 				this.$api.setLogin({
 					mobile:this.account,
 					password:this.psw,
 				},(res) => {	  
-					    uni.hideLoading();
-						console.log(res)
 						if(res.data.type == 'ok'){
+							uni.hideLoading();
 							uni.setStorageSync('token',res.data.message);
 							uni.setStorageSync("isLogin",true)
 							uni.setStorageSync('mobile',res.data.message.mobile);
-							//that.account = uni.getStorageSync('mobile')							
-							uni.showToast({
-								title:'登录成功'
-							});
-							setTimeout(()=>{
-								uni.switchTab({
-									url:'/pages/index/index'
-								})
-							},1500)
+							// that.account = uni.getStorageSync('mobile')							
+							uni.switchTab({
+								url:'/pages/index/index'
+							})
 						}
-				})
-			},
-			
-			// 跳转忘记密码页面
-			forgetPass(){
-				uni.navigateTo({
-					url:'/pages/login/forgetPass'
 				})
 			},
 			

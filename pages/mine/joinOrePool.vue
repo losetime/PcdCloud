@@ -31,25 +31,17 @@
 					<view class="ft12 mb10">算力</view>
 					<view class="bold ft16 cor_blue">{{round(userInfo.comPower,4)}}</view>
 				</view>
-				<!-- <view class="item1">
-					<view class="ft12 mb10">矿池剩余</view>
-					<view class="bold ft16 cor_blue">4117.21</view>
-				</view> -->
 				<view class="item1 mt20">
 					<view class="ft12 mb10">昨日挖矿</view>
 					<view class="bold ft16 cor_blue">{{round(userInfo.yesField,4)}}</view>
 				</view>
-				<!-- <view class="item1 mt20">
-					<view class="ft12 mb10">累计挖矿(个)</view>
-					<view class="bold ft16 cor_blue">125</view>
-				</view> -->
 				<view class="item1 mt20">
 					<view class="ft12 mb10">矿工人数</view>
 					<view class="bold ft16 cor_blue">{{round(userInfo.peoNum)}}</view>
 				</view>
-
 			</view>
 		</view>
+		<view style="margin-top:10px;">算力开启条件：矿池总量达到343312.00</view>
 		<view class="bgBlues white ft16 radius4 mt55 ptb14 tc" @click="joinOrePoolDialog">加入矿池</view>
 		<view class="bgGrayBtn white ft16 radius4 mt55 ptb14 tc" @click="exitOrePoolDialog">退出矿池</view>
 		

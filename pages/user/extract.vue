@@ -168,8 +168,8 @@
 					this.$util.showToast('请输入提币地址');
 					return;
 				};
-				if (!this.num) {
-					this.$util.showToast('请输入提币数量');
+				if (!this.num || this.num < 30) {
+					this.$util.showToast('请输入提币数量，且必须大于30枚');
 					return;
 				};
 				/* if(!this.psw){

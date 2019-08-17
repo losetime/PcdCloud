@@ -1,0 +1,23 @@
+
+page{
+	background: #fff;
+}
+.icon_tbg{
+	width: 132rpx;
+	height: 28rpx;
+}
+.avatar{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+}
+.avatar image{
+	width: 100%;
+}
+.ewm{
+	width: 320rpx;
+	height: 320rpx;
+	display: block;
+	margin: 60rpx auto;
+}
+

@@ -1,0 +1,28 @@
+
+page {
+	background: #fff;
+}
+.top {
+	background: url(../../static/img/mine_bg.1b0037d9.png) top center no-repeat;
+	width: 100%;
+	height: 288rpx;
+	background-size: 100% 288rpx;
+}
+.top_box {
+	top: 40rpx;
+	left: 5%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-box-shadow: 0 0 8px #ccc;
+	        box-shadow: 0 0 8px #ccc;
+}
+.list>view>view {
+	border-bottom: 1px solid #eee;
+}
+.list01>view:last-child {
+	border: none;
+}
+.logout {
+	background: #FC5D55;
+}
+

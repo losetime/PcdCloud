@@ -1,0 +1,1 @@
+<view class="plr10 ptb20"><view class="ft14"><view class="radius6 plr10 shadow_e bgWhite"><view data-event-opts="{{[['tap',[['changePass',['$event']]]]]}}" class="flex alcenter between ptb20  brb_e" bindtap="__e"><view class="flex alcenter"><text>修改密码</text></view><image style="width:12rpx;height:24rpx;" src="../../static/img/back.png"></image></view></view></view></view>

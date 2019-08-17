@@ -1,0 +1,5 @@
+
+.copys {
+	word-break: break-all;
+}
+

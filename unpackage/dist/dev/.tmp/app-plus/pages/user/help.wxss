@@ -1,0 +1,7 @@
+
+.icon_right {
+	width: 20rpx;
+	display: block;
+}
+
+
