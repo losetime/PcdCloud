@@ -1,0 +1,35 @@
+.forget-pass_wrapper.data-v-65b4ccfd {
+  height: 100vh;
+  background-color: #FFFFFF;
+}
+.forget-pass_wrapper .form_item.data-v-65b4ccfd {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.forget-pass_wrapper .form_item text.data-v-65b4ccfd {
+  display: block;
+  margin: 40rpx 0 20rpx 0;
+  font-weight: 700;
+}
+.forget-pass_wrapper .form_item input.data-v-65b4ccfd {
+  display: block;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #F3F3F3;
+}
+.forget-pass_wrapper .form_item .verify_btn.data-v-65b4ccfd {
+  position: absolute;
+  top: 110rpx;
+  right: 20rpx;
+  z-index: 999;
+}
+.forget-pass_wrapper .form_btn.data-v-65b4ccfd {
+  width: 90%;
+  margin-top: 60rpx;
+}
+

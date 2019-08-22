@@ -1,0 +1,1 @@
+<view><view><image class="img w100" src="{{newsContent.thumbnail}}"></image></view><view class="ptb10 plr20"><view class="title ft16">{{newsContent.title}}</view><view class="ft12 mt10 gray">{{newsContent.update_time}}</view><view class="content ft14"><rich-text nodes="{{newsContent.content}}"></rich-text></view></view></view>

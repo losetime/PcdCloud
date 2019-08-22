@@ -1,20 +1,20 @@
 <template>
-	<view class="ptb10 plr10">
-		<view class="bgWhite radius4 plr10">
-			<view class="flex alcenter between ptb10 bd_cor bdb">
+	<view class="update-pass_wrapper">
+		<view class="pass__form--list">
+			<view class="pass__form--item">
 				<text>旧密码</text>
-				<input class="tr" type="password" v-model="oldPass" placeholder="请输入旧密码" />
+				<input class="item__input" type="password" v-model="oldPass" placeholder="请输入旧密码" />
 			</view>
-			<view class="flex alcenter between ptb14 brb_e">
+			<view class="pass__form--item">
 				<text>新密码</text>
-				<input class="tr" type="password" v-model="newPass" maxlength="16" placeholder="请设置新密码" />
+				<input class="item__input" type="password" v-model="newPass" placeholder="请设置新密码" />
 			</view>
-			<view class="flex alcenter between ptb14">
+			<view class="pass__form--item">
 				<text>确认新密码</text>
-				<input class="tr" type="password" v-model="newPassConfirm" maxlength="16" placeholder="请再次确认新密码" />
+				<input class="item__input" type="password" v-model="newPassConfirm" placeholder="请再次确认新密码" />
 			</view>
 		</view>
-		<view class="w100 tc ft16 ptb10 radius4 bgBlues mt30 white" @click="onUpdatePass">提交</view>
+		<button type="primary" class="submit__btn" @click="onUpdatePass">提交</button>
 	</view>
 </template>
 
@@ -26,9 +26,6 @@
 				newPass: '',
 				newPassConfirm: ''
 			}
-		},
-		onLoad() {
-
 		},
 		methods: {
 			// 更新密码
@@ -76,13 +73,8 @@
 					uni.hideLoading();
 					if (res.data.type == 'ok') {
 						uni.showToast({
-							title:'修改成功'
+							title: '修改成功'
 						});
-						setTimeout(() => {
-							uni.switchTab({
-								url: '/pages/user/index'
-							})
-						}, 1500)
 					}
 				})
 			}
@@ -90,5 +82,39 @@
 	}
 </script>
 
-<style>
+<style lang="less" scoped>
+	.update-pass_wrapper {
+		padding: 20upx;
+	}
+
+	.pass__form--list {
+		.pass__form--item:nth-child(2) {
+			border-top: 1px solid #EFEFEF;
+			border-bottom: 1px solid #EFEFEF;
+		}
+
+		.pass__form--item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 20upx;
+			background-color: #FFFFFF;
+
+			text {
+				width: 40%;
+			}
+
+			.item__input {
+				display: block;
+				width: 100%;
+				height: 80upx;
+				padding: 0 10upx;
+				background-color: none;
+			}
+		}
+	}
+
+	.submit__btn {
+		margin-top: 20upx;
+	}
 </style>

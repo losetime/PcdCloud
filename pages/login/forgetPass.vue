@@ -1,170 +1,135 @@
 <template>
-	<view class="posRelt w100" style="height: 100vh;">
-		<view class="abstrot bgImg w100 plr20">
-			<view class="w100">
-				<!-- <view class="brb_balck ptb10 flex alcenter">
-				<image class="icon" src="/static/img/icon_mobile.png"></image>
-				<input class="ft14 ml30" type="number" v-model="mobile" placeholder="请输入您的手机号" />
-			</view> -->
-				<view class="ft14 bold mb10 mt20">手机号码</view>
-				<view class=" ptb7 flex alcenter bgInp radius4" style="width: 100%;">
-					<!-- <view class="flex alcenter plr10 ptb3">
-				<picker :range="list" :value="val" range-key="name_cn" mode="selector" @change="changeCountry">
-					<view class="flex alcenter"> 
-					<view class="plr10">{{list[val].area_code}}</view>
-					<image src="../../static/img/arrow_bottom.png" style="width: 18upx; height: 10upx;"></image>
-					</view>
-				</picker> 
-				</view> -->
-					<input style="width: 100%;" class="ft14 plr10 ptb3" v-model="mobile" placeholder="请输入手机号" />
-				</view>
-				<view class="ft14 bold mb10 mt20">验证码</view>
-				<view class=" ptb7 flex alcenter mt10 between bgInp radius4">
-					<view class="flex alcenter ptb3">
-						<image class="icon" src="/static/img/icon_psw.png"></image>
-						<input class="ft14" v-model="code" placeholder="请输入手机验证码" />
-					</view>
-					<view class="ft14 code" @click="getCode" style="">
-						<!-- {{codeText}} -->
-						<text v-show="!hasSend">{{txt_code}}</text>
-						<text v-show="hasSend">{{time}}s</text>
-					</view>
-				</view>
-				<view class="ft14 bold mb10 mt20">新密码</view>
-				<view class="plr10 ptb7 flex alcenter mt10 between  bgInp radius4">
-					<view class="flex alcenter  ptb3" style="width: 100%;">
-						<!-- <image class="icon" src="/static/img/icon_psw.png"></image> -->
-						<!-- <input :type="isShow ? 'text' :'password'"  v-model="psw" class="ft14 ml30" placeholder="请设置您的密码" /> -->
-						<input style="width: 100%;" v-if="!isShow" type="password" v-model="psw" class="ft14" placeholder="请设置您的新密码" />
-						<input style="width: 100%;" v-if="isShow" type="'text'" v-model="psw" class="ft14" placeholder="请设置您的新密码" />
-					</view>
-					<!-- <image class="icon_ice mr10" @click="showPsw" :src="isShow?'/static/img/icon_ice02.png':'/static/img/icon_ice01.png'"></image> -->
-				</view>
-				<!-- <view class="brb_balck ptb7 flex alcenter mt10 between  bgInp radius4">
-				<view class="flex alcenter ptb3 bdl">
-				<input v-if="!isShow02" type="password"  v-model="psw02" class="ft14 ml30" placeholder="请确认您的新密码" />
-				<input v-if="isShow02" type="text"  v-model="psw02" class="ft14 ml30" placeholder="请确认您的新密码" />
-				</view>
-				<image class="icon_ice mr10" @click="showPsw02" :src="isShow02?'/static/img/icon_ice02.png':'/static/img/icon_ice01.png'"></image>
-			</view> -->
-				<view class="w100 blue tc ptb12 ft16 mt30 white radius4 mauto" @click="confirm">确认重置</view>
-				<!-- <view class="tc ft14" style="margin-top: 30upx;" @click="login">去登录</view> -->
-				<!-- <view class="w100 tc ptb12 ft16 bgInp mt10 mauto bgGrayBtn radius4" @click="login">登录</view> -->
-			</view>
+	<view class="forget-pass_wrapper">
+		<view class="form_item">
+			<text>手机号码</text>
+			<input type="text" v-model="mobile" placeholder="请输入手机号码" />
 		</view>
+		<view class="form_item">
+			<text>验证码</text>
+			<input type="text" v-model="verifyCode" placeholder="请输入手机验证码" />
+			<button size="mini" class="verify_btn" :disabled='disabledVerify' @click="getVerifyCode">{{codeText}}</button>
+		</view>
+		<view class="form_item">
+			<text>新密码</text>
+			<input type="text" v-model="newPassword" placeholder="请输入新密码" />
+		</view>
+		<button type="primary" class="form_btn" :disabled='disabledSubmit' @click="onConfirmReset">确认重置</button>
 	</view>
 </template>
 
 <script>
-	import country from '../../static/js/country.js'
 	export default {
 		data() {
 			return {
-				isShow: false,
-				isShow02: false,
-				mobile: '',
-				psw: '',
-				psw02: '',
-				code: '',
-				invite: '',
-				codeText: '获取验证码',
-				timer: 30,
-				isDisable: false,
-				user_id: '',
-				txt_code: '获取验证码',
-				time: 60,
-				hasSend: false,
-				val: 0,
-				list: country,
-				phone: ''
+				mobile: '', 					// 手机号
+				verifyCode: '', 				// 验证码
+				newPassword:'', 				// 新的密码
+				codeText: '获取验证码', 			// 验证码按钮文本
+				countdown: 60,	 				// 倒计时
+				disabledVerify:false,   		// 禁用验证码按钮
+				disabledSubmit:false,			// 禁用提交按钮
+				countDownInterval:null          // 倒计时定时器
 			}
 		},
-		onLoad(option) {
-			console.log(option)
-			this.phone = option.phone;
-			this.user_id = uni.getStorageSync('user_id');
-		},
 		methods: {
-			//选择区号
-			changeCountry(e) {
-				this.val = e.target.value;
+			// 倒计时
+			countDownFn(){
+				this.codeText = '60S';
+				this.disabledVerify = true;
+				this.countDownInterval = setInterval(() => {
+					this.countdown--;
+					if (this.countdown > 0){
+						this.codeText = this.countdown + 'S';
+					} else {
+						clearInterval(interval);
+						this.countdown = 60;
+						this.disabledVerify = false;
+						this.codeText = '获取验证码';
+					}
+				}, 1000)
 			},
-			showPsw() {
-				this.isShow = !this.isShow;
-			},
-			showPsw02() {
-				this.isShow02 = !this.isShow02;
-			},
-			login() {
-				uni.redirectTo({
-					url: '/pages/login/index'
-				})
-			},
-			//获取验证码
-			getCode() {
-				let inter_id = null;
-				this.timer = 5;
-				
-				if (this.mobile == '') {
-					uni.showToast('请输入手机号');
-					return;
+			
+			// 验证手机号
+			verifyMobileFn(){
+				if (this.mobile === '') {
+					uni.showToast({
+						title:'请输入手机号',
+						icon:'none'
+					});
+					return false;
 				};
-				if (!this.checkMobile(this.mobile)) {
-					uni.showToast('请输入正确的手机号')
-					return;
+				if (!this.$util.checkMobile(this.mobile)) {
+					uni.showToast({
+						title:'手机号格式有误',
+						icon:'none'
+					})
+					return false;
 				}
+			},
+			
+			// 获取验证码
+			getVerifyCode() {
+				
+				if(!this.verifyMobileFn()) return;
 
-				if (this.time != 60) return;
+				if (this.countdown !== 60) return;
+				
+				this.countDownFn();
 				
 				this.$api.getVerifyCode({
 					mobile: this.mobile,
 					type: 'forget'
-				}, (res) => {
-					console.log(res.data.type)
-					this.hasSend = true;
-					inter_id = setInterval(() => {
-						this.time--;
-						if (this.time <= 0) {
-							clearInterval(inter_id);
-							this.time = 60;
-							this.hasSend = false;
-						}
-					}, 1000)
-					uni.showToast(res.data.message);
+				}, res => {
+					if(res.data.type !== 'ok') {
+						// 用户名不存在
+						clearInterval(this.countDownInterval);
+						this.disabledVerify = false;
+						this.codeText = '获取验证码';
+					}
+					uni.showToast({
+						title:res.data.message,
+						icon:'none'
+					});
 				})
 			},
 			
-			// 确认密码
-			confirm() {
-				if (this.mobile == '') {
-					uni.showToast('请输入手机号');
+			// 确认重置
+			onConfirmReset() {
+				if(!this.verifyMobileFn()) return;
+				
+				if (this.newPassword == '') {
+					uni.showToast({
+						title:'请设置新密码',
+						icon:'none'
+					});
 					return;
 				};
-				if (this.code == '') {
-					uni.showToast('请输入验证码');
-					return;
-				};
-				if (this.psw == '') {
-					uni.showToast('请设置您的新密码');
-					return;
-				};
-				if (this.psw.length < 6 || this.psw.length > 16) {
-					uni.showToast('密码必须在6到16位之间');
+				if (this.newPassword.length < 6 || this.newPassword.length > 16) {
+					uni.showToast({
+						title:'密码必须在6到16位之间',
+						icon:'none'
+					});
 					return;
 				};
 				
+				this.disabledSubmit = true  //禁用按钮，避免重复提交
+				
 				this.$api.forgetPass({
 					mobile: this.mobile,
-					password: this.psw,
-					msg_code: this.code
+					password: this.newPassword,
+					msg_code: this.verifyCode
 				}, (res) => {
-					if (res.data.type == 'ok') {
-						uni.showToast(res.data.message);
+					if (res.data.type === 'ok') {
+						uni.showToast({
+							title:res.data.message
+						});
 						setTimeout(() => {
 							uni.redirectTo({
 								url: '/pages/login/index'
 							})
 						}, 1500)
+					} else {
+						this.disabledSubmit = false
 					}
 				})
 			}
@@ -172,42 +137,38 @@
 	}
 </script>
 
-<style>
-	page {
-		background: #fff;
+<style lang="less" scoped>
+.forget-pass_wrapper{
+	height:100vh;
+	background-color:#FFFFFF;
+	.form_item{
+		position:relative;
+		width:90%;
+		margin:0 auto;
+		overflow:hidden;
+		text{
+		  display: block;
+		  margin:40upx 0 20upx 0;
+		  font-weight: 700;
+		}
+		input{
+			display: block;
+			width:100%;
+			height:80upx;
+			padding:0 10upx;
+			box-sizing: border-box;
+			background-color: #F3F3F3;
+		}
+		.verify_btn{
+			position:absolute;
+			top:110upx;
+			right:20upx;
+			z-index:999;
+		}
 	}
-
-	.icon {
-		width: 24upx;
-		height: 32upx;
+	.form_btn{
+		width:90%;
+		margin-top:60upx;
 	}
-
-	.icon_ice {
-		width: 36upx;
-		height: 16upx;
-	}
-
-	.bgImg {
-		top: 0;
-		left: 0;
-		box-sizing: border-box;
-	}
-
-	.bgInp {
-		background: #f5f5f5;
-	}
-
-	.blue {
-		background: #0A89EB;
-	}
-
-	.code {
-		background: none;
-		border: 1upx solid rgba(0, 0, 0, .2);
-		font-size: 28upx;
-		color: #386EEC;
-		padding: 10upx;
-		margin-right: 40upx;
-		border-radius: 10upx;
-	}
+}
 </style>

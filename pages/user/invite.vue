@@ -1,12 +1,12 @@
 <template>
-	<view class="invite" style="background-image:url(../../static/img/code_bg.png);">
-		<view class="code_box" style="background-image: url(../../static/img/code_box.png);">
-			<view class="codeBox tc flex alcenter jscenter pt50">
-				<image style="width: 200upx; height: 200upx;" :src="codeImg" mode=""></image>
-			</view>
-			<view class="ft18 bold tc mt10">{{inviteCode}}</view>
-			<view class="tc mt10">
-				<image class="" @click="copy" src="../../static/img/copy.png" style="width: 283upx; height: 74upx;"></image>
+	<view class="invite_wrapper">
+		<view class="invite_mask">
+			<view class="invite_content">
+				<image :src="codeImg" class="code__image"></image>
+				<view class="invite_code">
+					{{inviteCode}}
+				</view>
+				<image src="../../static/img/user/copy.png" class="copy__btn" @click="copyCode"></image>
 			</view>
 		</view>
 	</view>
@@ -21,36 +21,30 @@
 				inviteCode: ''
 			}
 		},
-		onLoad() {
+		onReady() {
+			this.getInviteCode();
+		},
+		onPullDownRefresh() {
 			this.getInviteCode();
 		},
 		methods: {
 			// 获取邀请码
 			getInviteCode() {
-				uni.showLoading()
 				this.$api.getInviteCode({}, res => {
-					uni.hideLoading();
 					if (res.data.type == 'ok') {
 						this.inviteCode = res.data.message.code;
-						console.log(res);
 						let img = QR.createQrCodeImg(res.data.message.pic_url);
 						this.codeImg = img;
+						uni.stopPullDownRefresh(); //停止下拉刷新动画
 					}
 				})
 			},
-			copy() {
-				var that = this;
+			copyCode() {
 				uni.setClipboardData({
-					data: that.inviteCode,
+					data: this.inviteCode,
 					success() {
 						uni.showToast({
 							title: '复制成功'
-						})
-					},
-					fail() {
-						uni.showToast({
-							title: '复制失败',
-							icon: 'loading'
 						})
 					}
 				})
@@ -59,31 +53,52 @@
 	}
 </script>
 
-<style>
-	page {
+<style lang="less" scoped>
+	.invite_wrapper {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
+		background-image: url(../../static/img/user/code_bg.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
-	.invite {
-		width: 100%;
-		height: 100%;
+	.invite_mask {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 450upx;
+		height: 450upx;
+		margin-top: 90%;
+		background-image: url(../../static/img/user/code_box.png);
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
 		background-position: center;
-		position: relative;
-	}
 
-	.code_box {
-		width: 76%;
-		height: 500upx;
-		background-repeat: no-repeat;
-		background-size: 100%;
-		margin: 0 auto;
-		/* margin-top: 650upx; */
-		position: absolute;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		top: 82%;
+		.invite_content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			margin-top: 20upx;
+
+			.code__image {
+				width: 200upx;
+				height: 200upx;
+			}
+
+			.invite_code {
+				font-weight: 700;
+				margin: 10upx 0;
+			}
+
+			.copy__btn {
+				width: 283upx;
+				height: 74upx;
+			}
+		}
 	}
 </style>

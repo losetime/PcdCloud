@@ -1,0 +1,40 @@
+
+.content {
+	padding: 0 30rpx;
+}
+.banner {
+	/* background: url(../../static/img/ban01.png) top center no-repeat; */
+	height: 330rpx;
+	width: 100%;
+	background-size: 100% 100%;
+	margin-top: 20rpx;
+}
+.logo {
+	width: 50%;
+	display: block;
+	margin: 20rpx auto;
+}
+.ftc_zs {
+	color: #d742e2;
+}
+.ftc_hs {
+	color: #ffb44c;
+}
+.ftc_qs {
+	color: #8cf5be;
+}
+.icon_left {
+	width: 100rpx;
+	height: 100rpx;
+	margin-right: 40rpx;
+}
+.item_box {
+	margin-top: 20rpx;
+}
+.item_list {
+	background: #fff;
+	padding: 20rpx;
+	border-radius: 10rpx;
+	margin-bottom: 20rpx;
+}
+

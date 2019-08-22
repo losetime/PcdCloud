@@ -1,0 +1,28 @@
+.help_list.data-v-cdc65b60 {
+  padding: 20rpx;
+}
+.help_list .help_item .item_question.data-v-cdc65b60 {
+  height: 80rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #9F9F9F;
+}
+.help_list .help_item .item_question image.data-v-cdc65b60 {
+  width: 30rpx;
+  height: 30rpx;
+}
+.help_list .help_item .item_reply.data-v-cdc65b60 {
+  padding: 20rpx 0;
+  color: #9F9F9F;
+}
+

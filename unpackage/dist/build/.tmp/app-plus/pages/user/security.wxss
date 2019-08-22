@@ -1,0 +1,23 @@
+.menu_list .menu_item.data-v-94c7dfb6 {
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20rpx;
+  padding: 0 20rpx;
+  background: #FFFFFF;
+}
+.menu_list .menu_item image.data-v-94c7dfb6 {
+  width: 24rpx;
+  height: 24rpx;
+}
+

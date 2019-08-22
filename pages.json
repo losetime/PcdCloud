@@ -1,43 +1,49 @@
 {
 	//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	"pages": [ 
+
+		// ---------------------------   登录相关页面  -------------------------
 		
+		// 登录页
 		{
-			"path": "pages/login/index2",
+			"path": "pages/login/index",
 			"style": {
 				"navigationStyle":"custom",
 				"navigationBarTitleText": ""
 			}
 		},
-		// --------------------------- 资讯相关页面 -------------------------
+		// 忘记密码
+		{
+			"path": "pages/login/forgetPass",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+			}
+		},
+		// 注册账号
+		{
+			"path": "pages/login/register",
+			"style": {
+				"navigationBarTitleText": "注册账号"
+			}
+		},
+		// OK码绑定页面
+		{
+			"path": "pages/login/okCode",
+			"style": {
+				"navigationBarTitleText": "绑定OK账号"
+			}
+		},
+		// 更新页面
+		{
+			"path": "pages/update/index",
+			"style": {
+				"navigationBarTitleText": "更新"
+			}
+		},
 		
-		// 资讯首页
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
-				"enablePullDownRefresh": true
-			}
-		},
-		// 资讯详情
-		{
-			"path": "pages/index/newsDetail",
-			"style": {
-				"enablePullDownRefresh": true
-			}
-		},
-
-		// --------------------------- 行情相关页面 -------------------------
+		// --------------------------- 矿场相关页面 -------------------------
 		
-		// 行情首页
-		{
-			"path": "pages/market/index",
-			"style": {
-				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
-				"enablePullDownRefresh": true
-			}
-		},
-		// 矿场
+		// 矿场首页
 		{
 			"path": "pages/mine/index",
 			"style": {
@@ -63,26 +69,52 @@
 			}
 		},
 		
+		// --------------------------- 钱包相关页面 -------------------------
+		
+		// 钱包首页
+		{
+			"path": "pages/wallet/index",
+			"style": {
+				"navigationBarTitleText": "钱包"
+			}
+		},
+		
+		// --------------------------- 资讯相关页面 -------------------------
+		
+		// 资讯首页
+		{
+			"path": "pages/news/index",
+			"style": {
+				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
+				"enablePullDownRefresh": true
+			}
+		},
+		// 资讯详情
+		{
+			"path": "pages/news/newsDetail",
+			"style": {
+				"enablePullDownRefresh": true
+			}
+		},
+		
 		// --------------------------- 用户信息相关页面 -------------------------
 		
-		// 我的页面
+		// 用户首页
 		{
 			"path": "pages/user/index",
 			"style": {
-				"enablePullDownRefresh": true,
-				"app-plus": {
-					"titleNView": {
-						"buttons": [{
-							"text": "我的",
-							"float": "left",
-							"fontSize": "16",
-							"fontWeight": "bold"
-						}]
-					}
-				}
+				"navigationStyle":"custom", //单独设置页面去掉顶部标题栏
+				"enablePullDownRefresh": true
 			}
 		},
-		// ok码绑定页面
+		// 修改用户信息页面
+		{
+			"path": "pages/user/userInfo",
+			"style": {
+				"navigationBarTitleText": "修改信息"
+			}
+		},
+		// ok码解绑页面
 		{
 			"path": "pages/user/okCode",
 			"style": {
@@ -128,7 +160,8 @@
 		{
 			"path": "pages/user/invite",
 			"style": {
-				"navigationBarTitleText": "我的邀请码"
+				"navigationBarTitleText": "我的邀请码",
+				"enablePullDownRefresh": true
 			}
 		},
 		// 矿主申请
@@ -165,66 +198,31 @@
 			"style": {
 				"navigationBarTitleText": "帮助"
 			}
-		},
-		
-		// ---------------------------   更新  --------------------------------
-		
-		
-		// 更新页面
-		{
-			"path": "pages/update/index",
-			"style": {
-				"navigationBarTitleText": "更新"
-			}
-		},
-		
-		// ---------------------------   账户相关页面  -------------------------
-		
-		// 登录页
-		{
-			"path": "pages/login/index",
-			"style": {
-				"navigationStyle":"custom",
-				"navigationBarTitleText": ""
-			}
-		},
-		// 忘记密码
-		{
-			"path": "pages/login/forgetPass",
-			"style": {
-				"navigationBarTitleText": "忘记密码"
-			}
-		},
-		// 注册账号
-		{
-			"path": "pages/login/register",
-			"style": {
-				"navigationBarTitleText": "注册账号"
-			}
 		}
     ],
 	"tabBar": {
 		"backgroundColor": "#FFFFFF",
 		"color": "#999999",
 		"selectedColor": "#215EEA",
-		"list": [{
-				"pagePath": "pages/index/index",
-				"iconPath": "/static/img/footer/home.png",
-				"selectedIconPath": "/static/img/footer/home_selected.png",
-				"text": "首页"
-			},
-			{
-				"pagePath": "pages/market/index",
-				"iconPath": "/static/img/footer/market.png",
-				"selectedIconPath": "/static/img/footer/market_selected.png",
-				"text": "行情"
-			},
+		"list": [
 			{
 				"pagePath": "pages/mine/index",
 				"iconPath": "/static/img/footer/mine.png",
 				"selectedIconPath": "/static/img/footer/mine_selected.png",
 				"text": "矿场"
 			},
+			{
+				"pagePath": "pages/wallet/index",
+				"iconPath": "/static/img/footer/mine.png",
+				"selectedIconPath": "/static/img/footer/mine_selected.png",
+				"text": "钱包"
+			},
+			{
+				"pagePath": "pages/news/index",
+				"iconPath": "/static/img/footer/home.png",
+				"selectedIconPath": "/static/img/footer/home_selected.png",
+				"text": "资讯"
+			},			
 			{
 				"pagePath": "pages/user/index",
 				"iconPath": "/static/img/footer/user.png",

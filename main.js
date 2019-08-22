@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import api from './static/js/api.js'
+import util from './static/js/util.js'
 
 function round(number, n) {
 	n = n ? parseInt(n) : 0;
@@ -13,7 +14,8 @@ function round(number, n) {
 };
 
 Vue.config.productionTip = false
-Vue.prototype.$api = api
+Vue.prototype.$api = api  				// 接口API
+Vue.prototype.$util = util 				// 工具函数
 Vue.prototype.round = round;
 App.mpType = 'app'
 

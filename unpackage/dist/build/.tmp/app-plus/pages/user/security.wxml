@@ -1,0 +1,1 @@
+<view class="security_wrapper data-v-94c7dfb6"><view class="menu_list data-v-94c7dfb6"><view data-event-opts="{{[['tap',[['changePass',['$event']]]]]}}" class="menu_item data-v-94c7dfb6" bindtap="__e"><text class="data-v-94c7dfb6">修改密码</text><image src="../../static/img/back.png" class="data-v-94c7dfb6"></image></view></view></view>

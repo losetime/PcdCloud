@@ -1,0 +1,37 @@
+.bottom-nav{
+		box-shadow:2px -12px 23px 7px rgba(153,153,153,0.1);
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 750upx;
+		height:98upx;
+		background-color: white;
+		padding: 0 54upx;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.bottom-nav-l-t image{
+		width: 44upx;
+		height: 44upx;
+		display: block;
+		margin: 16upx auto 11upx;
+	}
+	.bottom-nav-b,.bottom-nav-b-a{
+		font-size:20upx;
+		font-family:PingFang-SC-Medium;
+		font-weight:500;
+		color:rgba(197,208,228,1);
+		text-align: center;
+		line-height: 1;
+	}
+	.bottom-nav-b-a{
+		color:rgba(60,113,254,1);
+	}
+	.bottom-nav-cb image{
+		width: 112upx;
+		height: 112upx;
+		display: block;
+		margin:-52upx auto 11upx ;
+	}

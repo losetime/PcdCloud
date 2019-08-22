@@ -1,0 +1,37 @@
+.update-pass_wrapper.data-v-b724c6a0 {
+  padding: 20rpx;
+}
+.pass__form--list .pass__form--item.data-v-b724c6a0:nth-child(2) {
+  border-top: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
+}
+.pass__form--list .pass__form--item.data-v-b724c6a0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 20rpx;
+  background-color: #FFFFFF;
+}
+.pass__form--list .pass__form--item text.data-v-b724c6a0 {
+  width: 40%;
+}
+.pass__form--list .pass__form--item .item__input.data-v-b724c6a0 {
+  display: block;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 10rpx;
+  background-color: none;
+}
+.submit__btn.data-v-b724c6a0 {
+  margin-top: 20rpx;
+}
+

@@ -1,0 +1,53 @@
+.flex-layout.data-v-16c7c27c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFFFFF;
+}
+.user-info_wrapper.data-v-16c7c27c {
+  padding: 20rpx;
+}
+.form_list .avatar__form--item.data-v-16c7c27c,
+.form_list .nickname__form--item.data-v-16c7c27c {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FFFFFF;
+  padding: 20rpx;
+}
+.form_list .avatar__form--item .item_text.data-v-16c7c27c,
+.form_list .nickname__form--item .item_text.data-v-16c7c27c {
+  margin-right: 40%;
+}
+.form_list .avatar__form--item .item_icon.data-v-16c7c27c,
+.form_list .nickname__form--item .item_icon.data-v-16c7c27c {
+  width: 17rpx;
+  height: 28rpx;
+}
+.form_list .avatar__form--item.data-v-16c7c27c {
+  border-bottom: 1px solid #EFEFEF;
+}
+.form_list .avatar__form--item .item_avatar.data-v-16c7c27c {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+

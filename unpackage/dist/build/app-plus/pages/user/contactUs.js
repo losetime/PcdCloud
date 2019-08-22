@@ -1,0 +1,2 @@
+setCssToHead(["body{ background: #fff; }\n.",[1],"icon_tbg{ width: ",[0,132],"; height: ",[0,28],"; }\n.",[1],"avatar{ width: ",[0,120],"; height: ",[0,120],"; border-radius: 50%; }\n.",[1],"avatar wx-image{ width: 100%; }\n.",[1],"ewm{ width: ",[0,320],"; height: ",[0,320],"; display: block; margin: ",[0,60]," auto; }\n",],undefined,{path:"./pages/user/contactUs.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/contactUs.wxml') } }));

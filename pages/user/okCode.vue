@@ -1,158 +1,101 @@
 <template>
-	<view class="ptb10 plr10">
-		<!-- 未绑定的 -->
-		<view v-if="nshows">
-			<view class="flex between ptb10">
-				<text class="bold">OK账号</text>
-			</view>
+	<view class="ok-code_wrap">
+		<view class="form_item">
+			<text>OK账号</text>
 			<view>
-				<input type="text" v-model="account" placeholder="请输入OK账号" class="ptb10 plr10 ft14 bgInp radius4" />
-			</view>
-			<view class="flex between ptb10">
-				<text class="bold">apiKey</text>
-			</view>
-			<view>
-				<input type="text" v-model="key" placeholder="请输入apiKey" class="ptb10 plr10 ft14 bgInp radius4" />
-			</view>
-
-			<view class="flex between ptb10">
-				<text class="bold">secretKey</text>
-			</view>
-			<view>
-				<input type="text" v-model="secret" placeholder="请输入secretKey" class="ptb10 plr10 ft14 bgInp radius4" />
-			</view>
-			<view class="flex between ptb10">
-				<text class="bold">Passphrase</text>
-			</view>
-			<view>
-				<input type="text" v-model="passphrase" placeholder="请输入Passphrase" class="ptb10 plr10 ft14 bgInp radius4" />
+				{{userInfo.account}}			
 			</view>
 		</view>
-		<!-- 绑定之后显示的 -->
-		<view v-if="ashow">
-			<view class="flex between ptb10">
-				<text class="bold">OK账号</text>
-			</view>
+		<view class="form_item">
+			<text>apiKey</text>
 			<view>
-				<view class="ptb10 plr10 ft14 bgInp radius4">
-					{{userOkcodeInfo.okaccount}}
-				</view>
-				<!-- <input type="text" v-model="account" placeholder="请输入OK账号" class="ptb10 plr10 ft14 bgInp radius4" /> -->
-			</view>
-			<view class="flex between ptb10">
-				<text class="bold">apiKey</text>
-			</view>
-			<view>
-				<view class="ptb10 plr10 ft14 bgInp radius4">
-					{{userOkcodeInfo.okkey}}
-				</view>
-			</view>
-
-			<view class="flex between ptb10">
-				<text class="bold">secretKey</text>
-			</view>
-			<view>
-				<view class="ptb10 plr10 ft14 bgInp radius4">
-					{{userOkcodeInfo.secret}}
-				</view>
-			</view>
-			<view class="flex between ptb10">
-				<text class="bold">Passphrase</text>
-			</view>
-			<view>
-				<view class="ptb10 plr10 ft14 bgInp radius4">
-					{{userOkcodeInfo.passphrase}}
-				</view>
+				{{userInfo.apiKey}}			
 			</view>
 		</view>
+		<view class="form_item">
+			<text>secretKey</text>
+			<view>
+				{{userInfo.secretKey}}				
+			</view>
+		</view>
+		<view class="form_item">
+			<text>Passphrase</text>
+			<view>
+				{{userInfo.passphrase}}				
+			</view>
+		</view>
+		<button type="primary" class="form_btn" @click="showDialog = true">解绑</button>
 
-		<view v-if="show" class="w100 bgBlues white radius4 ft14 tc ptb12 mt30" @click="bindOkAccount">确认</view>
+		<uni-dialog 
+		    :show="showDialog" 
+		    title="确认解绑" 
+		    content="所有信息都会删除,是否确认解绑？"
+		    @cancel="onDialogEvent('cancel')" 
+		    @confirm="onDialogEvent('confirm')">
+		</uni-dialog>
 	</view>
 </template>
 
 <script>
+	import uniDialog from "@/components/uni-dialog/uni-dialog.vue"
 	export default {
 		data() {
 			return {
-				account: '',
-				key: '',
-				passphrase: '',
-				secret: '',
-				show: true,
-				nshows: true,
-				ashow: false,
-				userOkcodeInfo: {}
+				userInfo: {},
+				showDialog: false
 			}
 		},
-		onLoad() {
-			this.getUserInfo();
+		onReady() {
+			this.userInfo= uni.getStorageSync('user_Info').okAccount;
 		},
 		methods: {
-			// 绑定ok账户
-			bindOkAccount() {
-				if (this.account == '') {
-					uni.showToast('请输入OK账号');
-					return;
-				};
-				if (this.key == '') {
-					uni.showToast('请输入key');
-					return;
+			// 对话框事件
+			onDialogEvent(param){
+				if(param === "cancel"){
+					this.showDialog = false
+				}else if(param === "confirm"){
+					this.removeOkAccount();
 				}
-				if (this.passphrase == '') {
-					uni.showToast('请输入passphrase');
-					return;
-				};
-				if (this.secret == '') {
-					uni.showToast('请输入secret');
-					return;
-				}
-				uni.showLoading();
-				console.log(that.account);
-				console.log(that.key)
-
-				this.$api.bindOkAccount({
-					account: this.account,
-					key: this.key,
-					secret: this.secret,
-					passphrase: this.passphrase
-				}, res => {
-					uni.hideLoading();
-					if (res.data.type == 'ok') {
-						uni.showToast("绑定成功");
-						setTimeout(() => {
-							uni.switchTab({
-								url: '/pages/mine/mine'
-							})
-						}, 1500)
-					}
-				})
 			},
-			
-			getUserInfo() {
-				this.$api.getUserInfo({}, (res) => {
-					if (res.data.type == 'ok') {
-						this.userOkcodeInfo = res.data.message;
-						var data = res.data.message
-						var status = data.okaccount
-						if (status != "") {
-							this.show = false,
-								this.nshows = false,
-								this.ashow = true
-						}
+			// 解绑
+			removeOkAccount(){
+				this.$api.removeOkAccount({},res=>{
+					if(res.data.type === 'ok'){
+						uni.reLaunch({
+							url: '/pages/login/index'
+						})
 					}
 				})
 			}
-		}
-
+		},
+		components: {uniDialog}
 	}
 </script>
 
-<style>
-	page {
-		background: #fff;
+<style lang="less" scoped>
+.ok-code_wrap{
+	height:100vh;
+	padding: 0 40upx;
+	background-color:#FFFFFF;
+	overflow:hidden;
+	.form_item{
+		text{
+		  display: block;
+		  margin:40upx 0 10upx 0;
+		  font-weight: 700;
+		}
+		view{
+			display: block;
+			width:100%;
+			height:80upx;
+			line-height: 80upx;
+			padding:0 10upx;
+			background-color: #F3F3F3;
+		}
 	}
-
-	.bgInp {
-		background: #f5f5f5;
+	.form_btn{
+		width:90%;
+		margin-top:60upx;
 	}
+}
 </style>

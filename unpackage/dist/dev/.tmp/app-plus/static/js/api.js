@@ -1,12 +1,14 @@
 import http from './http';
 
 export default {
-	//下载地址
+	/** --------------------------- 设备相关 ------------------------- */
+	
+	// 下载地址
 	getDownloadUrl(param,callback){
 		http('/app_download_url','GET',param,callback)
 	},
 	
-	//更新推送
+	// 更新推送
 	getUpdate(param,callback){
 		http('/app_update_version','GET',param,callback)
 	},
@@ -49,6 +51,12 @@ export default {
 	bindOkAccount(param,callback){
 		http('/user/account_bind','POST',param,callback)
 	},
+	
+	// 解绑ok账户
+	removeOkAccount(param,callback){
+		http('/user/account_unbind','POST',param,callback)
+	},
+	
 	
 	// 获取钱包信息
 	getWalletInfo(param,callback){
@@ -108,6 +116,16 @@ export default {
 	// 获取收益
 	getIncome(param,callback){
 		http('/interest_log','GET',param,callback)
+	},
+	
+	// 获取API地址
+	getApiUrl(){
+		return 'http://192.168.1.7/api'
+	},
+	
+	// 修改用户资料
+	changeUserInfo(param,callback){
+		http('/user/modify','POST',param,callback)
 	},
 	
 	

@@ -1,0 +1,30 @@
+.nav {
+		width: 750upx;
+		height: 82upx;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		background-color: white;
+	}
+
+	.nav-right {
+		font-size: 34upx;
+		font-family: PingFang-SC-Medium;
+		font-weight: 500;
+		color: rgba(51, 51, 51, 1);
+		margin-left: 272upx;
+	}
+
+	.nav-left {
+		width: 16upx;
+		height: 28upx;
+		margin-left: 11upx;
+		padding:30upx 30upx 30upx 10upx;
+	}
+
+	.nav-left image {
+		width: 16upx;
+		height: 28upx;
+		display: block;
+	}

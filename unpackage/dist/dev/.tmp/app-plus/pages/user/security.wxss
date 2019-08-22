@@ -1,14 +1,23 @@
-
-.pages-mine-security{
-	background: #F5F5F5;
+.menu_list .menu_item.data-v-874eac6e {
+  height: 100rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20rpx;
+  padding: 0 20rpx;
+  background: #FFFFFF;
 }
-.bgCard{
-	background: #1C1F26;
-}
-.bdb_c{
-	border-bottom: 1px solid #474A52;
-}
-.bd_cor{
-	border-color: rgba(71, 74, 82, .3);
+.menu_list .menu_item image.data-v-874eac6e {
+  width: 24rpx;
+  height: 24rpx;
 }
 

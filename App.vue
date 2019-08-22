@@ -12,13 +12,13 @@
 			// 判断是否更新
 			this.$api.getUpdate({}, res => {
 				if (res.data.type == 'ok') {
-					let newVersion = res.data.message.app_version; //后台返回回来的版本	
+					let newVersion = res.data.message.app_version; // 后台返回回来的版本
+					uni.setStorageSync('app_version', newVersion);
 					if (newVersion != req.version) {
 						uni.getStorage({
 						    key: 'is_update_prompt',
 						    success: function (res) {
 								if (res.data === false) {
-									console.log('res',res.data);
 									return
 								}else{
 									uni.redirectTo({

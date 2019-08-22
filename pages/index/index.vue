@@ -1,167 +1,145 @@
 <template>
-	<view class="plr10 bgWhite">
-		<view class="status_bar">
-			<view class="top_view"></view>
-			<!-- 这里是状态栏  哪一个第二   现在可以了， -->
-		</view>
-		<view class="flex alcenter ptb10">
-			<image src="/static/img/logo1.jpg" style="width: 60upx;height: 40upx;" mode="widthFix"></image>
-			<text class="ft16 bold ml10">PCD矿场</text>
-		</view>
-		<scroll-view :scroll-x="true">
-			<view class="box flex alcenter white nowrap">
-				<view class="radius4 card card01 plr10 ptb14 w35">
-					<view class="mb10">资产</view>
-					<view class="ft14">{{round(userAssetInfo.total_balance,2)}}</view>
-				</view>
-				<view class="radius4 card card02 plr10 ptb14 w35 ml20">
-					<view class="mb10">冻结</view>
-					<!-- <view class="ft14">{{msg.lock_balance}}</view> -->
-					<view class="ft14">{{round(userAssetInfo.lock_balance,2)}}</view>
-				</view>
-				<view class="radius4 card card03 plr10 ptb14 w35 ml20">
-					<view class="mb10">可用</view>
-					<view class="ft14">{{round(userAssetInfo.available_balance,2)}}</view>
-				</view>
-			</view>
-		</scroll-view>
-		<!--加入矿池-->
-		<view class="flex alcenter around ft14 ptb20">
-			<!-- <view class="flex alcenter" @click="join">
-				<image src="/static/img/join.png" style="width: 34upx;height: 32upx;"></image>
-				<text class="ml10">加入矿池</text>
-			</view> -->
-			<view class="flex alcenter" @tap="jumpWalletPage">
-				<image src="/static/img/wallet.png" style="width: 34upx;height: 32upx;"></image>
-				<text class="ml10">钱包</text>
-			</view>
-			<view class="flex alcenter" @tap="jumpContactUsPage">
-				<image src="/static/img/kefu.png" style="width: 34upx;height: 32upx;"></image>
-				<text class="ml10">联系我们</text>
-			</view>
-		</view>
-		<!--公告-->
-		<view class="flex alcenter mb10">
-			<image src="/static/img/notice.png" style="width:24upx;height: 28upx;"></image>
-			<swiper class="ft14 news w100 ml10" vertical="true" autoplay="true" circular="true" interval="3000">
-				<swiper-item class="gray6 ellipsis" v-for="(item,i) in announcementList" :key="i">{{item.title}}</swiper-item>
-			</swiper>
-
-		</view>
-
-		<!--banner-->
-		<view class="banner tc white flex alcenter jscenter ft18" style="background-image: url(../../static/img/banner.png);">PCD矿场正式上线</view>
-		<!--咨讯-->
-		<view class="ft16 mt20 bold">资讯</view>
-		<view class="ptb10 bdbf5" v-for="(item,index) in newsList" :key="index" @click="goDetail(item.id)">
-			<view class="ft14 mb10">{{item.title}}</view>
-			<view class="flex alcenter">
-				<image src="../../static/img/hot.png" style="width: 24upx;height: 24upx;"></image>
-				<view class="ft12 gray9 ml10"><text class="ml10">{{item.update_time}}</text></view>
-			</view>
-		</view>
-	</view>
+    <view>
+        <view class="example">
+            <view>
+                <view class="example-title">基础使用方式</view>
+                <button type="default" @click="bindClick('1')">打开模态弹窗</button>
+                <neil-modal :auto-close="false" :show="show1" @close="closeModal('1')" title="标题" content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容"
+                    @cancel="bindBtn('cancel')" @confirm="bindBtn('confirm')">
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">单个按钮</view>
+                <button type="default" @click="bindClick('2')">打开模态弹窗</button>
+                <neil-modal :show="show2" @close="closeModal('2')" :show-cancel="false" title="标题" content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容">
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">无标题</view>
+                <button type="default" @click="bindClick('3')">打开模态弹窗</button>
+                <neil-modal :show="show3" @close="closeModal('3')" content="这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容，这里是正文内容">
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">向 content 里插入输入框</view>
+                <button type="default" @click="bindClick('4')">打开模态弹窗</button>
+                <neil-modal :show="show4" @close="closeModal('4')" title="请输入用户名密码">
+                    <view class="input-view">
+                        <view class="input-name">
+                            <view>用户名</view>
+                            <input type="text" placeholder="请输入用户名" />
+                        </view>
+                        <view class="input-password">
+                            <view>密码</view>
+                            <input type="text" password placeholder="请输入密码" />
+                        </view>
+                    </view>
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">修改内容对齐方式</view>
+                <button type="default" @click="bindClick('5')">打开模态弹窗</button>
+                <neil-modal :show="show5" @close="closeModal('5')" align="center" content="这里是正文内容，这里是正文内容，这里是正文内容">
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">修改按钮颜色</view>
+                <button type="default" @click="bindClick('6')">打开模态弹窗</button>
+                <neil-modal :show="show6" @close="closeModal('6')" confirm-color="#CC0000" cancel-color="#99FFFF"
+                    content="这里是正文内容，这里是正文内容">
+                </neil-modal>
+            </view>
+            <view>
+                <view class="example-title">更新提示</view>
+                <button type="default" @click="bindClick('7')">打开模态弹窗</button>
+                <neil-modal :show="show7" @close="closeModal('7')" title="更新提示" confirm-text="立即更新" cancel-text="暂不更新">
+                    <view style="min-height: 90upx;padding: 32upx 24upx;">
+                        <view>1. 修复标题颜色不对的问题</view>
+                        <view>2. 增加支付宝支付功能</view>
+                        <view>3. 增加更多示例</view>
+                    </view>
+                </neil-modal>
+            </view>
+        </view>
+    </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				announcementList: [], // 公告列表
-				newsList: [], // 资讯列表
-				userAssetInfo: {} // 用户资产信息
-			}
-		},
-		onLoad() {
-			this.getNoticeList();
-			this.getNewsList();
-		},
-		onPullDownRefresh() {
-			this.getNoticeList();
-			this.getNewsList();
-
-			//监听下拉刷新动作的执行方法，每次手动下拉刷新都会执行一次
-			setTimeout(function() {
-				uni.stopPullDownRefresh(); //停止下拉刷新动画
-			}, 1000);
-		},
-		methods: {
-			goDetail(id) {
-				uni.navigateTo({
-					url: '/pages/index/newsDetail?id=' + id
-				})
-			},
-			//公告列表
-			getNoticeList() {
-				this.$api.getAnnouncementList({
-					page: this.page,
-					c_id: 10
-				}, (res) => {
-					if (res.data.type == 'ok') {
-						if (res.data.message.data.length > 0) {
-							this.announcementList = res.data.message.data;
-						}
-					}
-				})
-			},
-			//资讯列表
-			getNewsList() {
-				this.$api.getAnnouncementList({
-					page: this.page,
-					c_id: 9
-				}, (res) => {
-					if (res.data.type == 'ok') {
-						if (res.data.message.data.length > 0) {
-							this.newsList = res.data.message.data;
-						}
-					}
-				})
-			},
-			join() {
-				uni.navigateTo({
-					url: '/pages/index/join'
-				})
-			},
-			jumpContactUsPage() {
-				uni.navigateTo({
-					url: '/pages/user/contactUs'
-				})
-			},
-			jumpWalletPage() {
-				uni.navigateTo({
-					// url: '/pages/user/wallet'
-					url: '/pages/subnvue/subnvue'
-				})
-			}
-		}
-	}
+    import neilModal from '@/components/neil-modal/neil-modal.vue';
+    export default {
+        components: {
+            neilModal
+        },
+        data() {
+            return {
+                show1: false,
+                show2: false,
+                show3: false,
+                show4: false,
+                show5: false,
+                show6: false,
+                show7: false
+            }
+        },
+        methods: {
+            bindClick(type) {
+                console.log(this[`show${type}`])
+                this[`show${type}`] = true
+                console.log(this[`show${type}`])
+            },
+            closeModal(type) {
+                console.log(`监听到close`)
+                this[`show${type}`] = false
+            },
+            bindBtn(type) {
+                uni.showToast({
+                    title: `点击了${type==='cancel'?'取消':'确定'}按钮`,
+                    icon: 'none'
+                })
+            }
+        }
+    }
 </script>
 
 <style>
-	.card {
-		box-sizing: border-box;
-	}
+    .input-name,
+    .input-password {
+        height: 80upx;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding-left: 30upx;
+        box-sizing: border-box;
+    }
 
-	.card01 {
-		background: -webkit-linear-gradient(left, #7580FF, #8FA2F9);
-	}
+    .input-name::after {
+        content: " ";
+        position: absolute;
+        left: 30upx;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #e5e5e5;
+        transform-origin: 0 0;
+        transform: scaleY(.5);
+    }
 
-	.card02 {
-		background: -webkit-linear-gradient(left, #569AFE, #4981F2);
-	}
+    .input-name view,
+    .input-password view {
+        width: 120upx;
+        height: 50upx;
+        line-height: 50upx;
+        font-size: 28upx;
+        color: #333333;
+    }
 
-	.card03 {
-		background: -webkit-linear-gradient(left, #717DFA, #5396FE);
-	}
-
-	.banner {
-		background: top center no-repeat;
-		width: 100%;
-		height: 100upx;
-		background-size: 100%;
-	}
-
-	.news {
-		height: 40upx;
-	}
+    .input-name input,
+    .input-password input {
+        flex: 1;
+        height: 50upx;
+        line-height: 50upx;
+    }
 </style>

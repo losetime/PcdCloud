@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "修改信息",
+  "usingComponents": {
+    "uni-dialog": "/components/uni-dialog/uni-dialog"
+  }
+}
