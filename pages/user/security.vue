@@ -4,7 +4,7 @@
 		<view class="menu_list">
 			<view class="menu_item" @click="changePass">
 				<text>修改密码</text>
-				<image src="../../static/img/back.png"></image>
+				<image src="../../static/img/common/arrowRight.pngrrowRight.png"></image>
 			</view>
 		</view>
 	</view>

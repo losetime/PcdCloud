@@ -4,12 +4,12 @@
 			<view class="avatar__form--item" @click="uploadAvatar">
 				<image :src="userAvatar" class="item_avatar"></image>
 				<text class="item_text">修改头像</text>
-				<image src="/static/img/back.png" class="item_icon"></image>
+				<image src="/static/img/common/arrowRight.pngrrowRight.png" class="item_icon"></image>
 			</view>
 			<view class="nickname__form--item" @click="showChangeNameDialog = true">
 				<text>修改名字</text>
 				<text class="item_text">{{userNickname}}</text>
-				<image src="/static/img/back.png" class="item_icon"></image>
+				<image src="/static/img/common/arrowRight.pngrrowRight.png" class="item_icon"></image>
 			</view>
 		</view>
 		

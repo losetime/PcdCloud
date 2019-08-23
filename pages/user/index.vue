@@ -52,22 +52,22 @@
 					{
 						leftPic: require('../../static/img/bind_icon.png'),
 						text: '收益明细',
-						rightPic: require('../../static/img/back.png')
+						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
 						leftPic: require('../../static/img/bind_icon.png'),
 						text: 'OK账户解绑',
-						rightPic: require('../../static/img/back.png')
+						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
 						leftPic: require('../../static/img/help.png'),
 						text: '帮助中心',
-						rightPic: require('../../static/img/back.png')
+						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
 						leftPic: require('../../static/img/banben.png'),
 						text: '版本',
-						rightPic: require('../../static/img/back.png')
+						rightPic: require('../../static/img/common/arrowRight.png')
 					}
 				]
 			}

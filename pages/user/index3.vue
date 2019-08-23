@@ -39,35 +39,35 @@
 						<image src="/static/img/apply_icon.png" style="width: 36upx;height: 32upx;"></image>
 						<text class="ml10">矿主申请</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 				<view class="flex between alcenter ptb20 " @click="jumpUnlockWarehoursePage">
 					<view class="flex alcenter">
 						<image src="/static/img/apply_icon.png" style="width: 36upx;height: 32upx;"></image>
 						<text class="ml10">解仓申请</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 				<view class="flex between alcenter ptb20" @click="jumpLockWarehoursePage">
 					<view class="flex alcenter">
 						<image src="/static/img/lock_icon.png" style="width: 36upx;height: 32upx;"></image>
 						<text class="ml10">锁仓提交</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 				<view class="flex between alcenter ptb20" @click="jumpOkcodePage">
 					<view class="flex alcenter">
 						<image src="/static/img/bind_icon.png" style="width: 36upx;height: 32upx;"></image>
 						<text class="ml10">OK账号绑定</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 				<view class="flex between alcenter ptb20" @click="jumpIncomePage">
 					<view class="flex alcenter">
 						<image src="/static/img/detail.png" style="width: 36upx;height: 32upx;"></image>
 						<text class="ml10">收益明细</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 			</view>
 			<view class="" style="height: 15upx;background: #eee;"></view>
@@ -77,7 +77,7 @@
 						<image src="/static/img/help.png" style="width: 32upx;height: 32upx;"></image>
 						<text class="ml10">帮助中心</text>
 					</view>
-					<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+					<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 				</view>
 				<view class="flex between alcenter ptb20">
 					<view class="flex alcenter" @tap="getVersion">
@@ -86,7 +86,7 @@
 					</view>
 					<view class="flex alcenter">
 						<text class="gray9 mr10">{{version}}</text>
-						<image src="/static/img/back.png" style="width: 17upx; height: 28upx;"></image>
+						<image src="/static/img/common/arrowRight.png" style="width: 17upx; height: 28upx;"></image>
 					</view>
 				</view>
 			</view>

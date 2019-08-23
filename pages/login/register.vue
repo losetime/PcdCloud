@@ -54,29 +54,23 @@
 				}, 1000)
 			},
 			
-			// 验证手机号
-			verifyMobileFn(){
+			// 获取验证码
+			getVerifyCode() {
+
 				if (this.mobile === '') {
 					uni.showToast({
 						title:'请输入手机号',
 						icon:'none'
 					});
-					return false;
-				};
+					return
+				}
 				if (!this.$util.checkMobile(this.mobile)) {
 					uni.showToast({
 						title:'手机号格式有误',
 						icon:'none'
 					})
-					return false;
+					return
 				}
-			},
-			
-			// 获取验证码
-			getVerifyCode() {
-
-				if(!this.verifyMobileFn()) return;
-			
 				if (this.countdown !== 60) return;
 				
 				this.countDownFn();
@@ -100,10 +94,29 @@
 
 			// 注册
 			onRegister() {
-				
-				if(!this.verifyMobileFn()) return;
 
-				if (this.newPassword == '') {
+				if (this.mobile === '') {
+					uni.showToast({
+						title:'请输入手机号',
+						icon:'none'
+					});
+					return
+				}
+				if (!this.$util.checkMobile(this.mobile)) {
+					uni.showToast({
+						title:'手机号格式有误',
+						icon:'none'
+					})
+					return
+				}
+				if (this.verifyCode === '') {
+					uni.showToast({
+						title:'验证码不能为空',
+						icon:'none'
+					});
+					return;
+				};
+				if (this.newPassword === '') {
 					uni.showToast({
 						title:'请设置您的密码',
 						icon:'none'
@@ -117,13 +130,13 @@
 					});
 					return;
 				};
-				if (this.inviteCode == '') {
+				if (this.inviteCode === '') {
 					uni.showToast({
 						title:'请输入邀请码',
 						icon:'none'
 					});
 					return;
-				};
+				}
 				
 				this.disabledSubmit = true  //禁用按钮，避免重复提交
 				

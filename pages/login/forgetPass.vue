@@ -69,8 +69,20 @@
 			
 			// 获取验证码
 			getVerifyCode() {
-				
-				if(!this.verifyMobileFn()) return;
+				if (this.mobile === '') {
+					uni.showToast({
+						title:'请输入手机号',
+						icon:'none'
+					});
+					return
+				}
+				if (!this.$util.checkMobile(this.mobile)) {
+					uni.showToast({
+						title:'手机号格式有误',
+						icon:'none'
+					})
+					return
+				}
 
 				if (this.countdown !== 60) return;
 				
@@ -95,22 +107,41 @@
 			
 			// 确认重置
 			onConfirmReset() {
-				if(!this.verifyMobileFn()) return;
-				
+				if (this.mobile === '') {
+					uni.showToast({
+						title:'请输入手机号',
+						icon:'none'
+					});
+					return
+				}
+				if (!this.$util.checkMobile(this.mobile)) {
+					uni.showToast({
+						title:'手机号格式有误',
+						icon:'none'
+					})
+					return
+				}
+				if (this.verifyCode == '') {
+					uni.showToast({
+						title:'验证码不能为空',
+						icon:'none'
+					});
+					return
+				};
 				if (this.newPassword == '') {
 					uni.showToast({
 						title:'请设置新密码',
 						icon:'none'
 					});
-					return;
+					return
 				};
 				if (this.newPassword.length < 6 || this.newPassword.length > 16) {
 					uni.showToast({
 						title:'密码必须在6到16位之间',
 						icon:'none'
 					});
-					return;
-				};
+					return
+				}
 				
 				this.disabledSubmit = true  //禁用按钮，避免重复提交
 				
@@ -120,9 +151,6 @@
 					msg_code: this.verifyCode
 				}, (res) => {
 					if (res.data.type === 'ok') {
-						uni.showToast({
-							title:res.data.message
-						});
 						setTimeout(() => {
 							uni.redirectTo({
 								url: '/pages/login/index'
@@ -131,6 +159,10 @@
 					} else {
 						this.disabledSubmit = false
 					}
+					uni.showToast({
+						title:res.data.message,
+						icon:'none'
+					});
 				})
 			}
 		}
