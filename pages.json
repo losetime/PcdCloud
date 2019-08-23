@@ -78,6 +78,20 @@
 				"navigationBarTitleText": "钱包"
 			}
 		},
+		// 测试
+		{
+			"path": "pages/wallet/test",
+			"style": {
+				"navigationBarTitleText": "test"
+			}
+		},
+		// 提币页面
+		{
+			"path": "pages/wallet/extract",
+			"style": {
+				"navigationBarTitleText": "提币"
+			}
+		},
 		
 		// --------------------------- 资讯相关页面 -------------------------
 		
@@ -147,13 +161,6 @@
 			"path": "pages/user/updatePass",
 			"style": {
 				"navigationBarTitleText": "修改密码"
-			}
-		},
-		// 提币页面
-		{
-			"path": "pages/user/extract",
-			"style": {
-				"navigationBarTitleText": "提币"
 			}
 		},
 		// 邀请页面

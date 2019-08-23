@@ -46,7 +46,7 @@
 			}
 		},
 		onReady() {
-			this.userInfo= uni.getStorageSync('user_Info').okAccount;
+			this.userInfo= uni.getStorageSync('user_info').okAccount;
 		},
 		methods: {
 			// 对话框事件

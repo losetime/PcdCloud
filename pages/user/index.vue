@@ -13,15 +13,15 @@
 		</view>
 		<view class="important_handle_wrap">
 			<view class="important_handle_item" @click="jumpSecurityPage">
-				<image src="../../static/img/anquan.png"></image>
+				<image src="../../static/img/user/anquan.png"></image>
 				<text>安全中心</text>
 			</view>
 			<view class="important_handle_item" @click="jumpInvitePage">
-				<image src="../../static/img/invite.png"></image>
+				<image src="../../static/img/user/invite.png"></image>
 				<text>邀请好友</text>
 			</view>
 			<view class="important_handle_item">
-				<image src="../../static/img/anquan.png"></image>
+				<image src="../../static/img/user/anquan.png"></image>
 				<text>联系我们</text>
 			</view>
 		</view>
@@ -50,22 +50,22 @@
 				// 操作菜单
 				handleMenu: [
 					{
-						leftPic: require('../../static/img/bind_icon.png'),
+						leftPic: require('../../static/img/user/bind_icon.png'),
 						text: '收益明细',
 						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
-						leftPic: require('../../static/img/bind_icon.png'),
+						leftPic: require('../../static/img/user/bind_icon.png'),
 						text: 'OK账户解绑',
 						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
-						leftPic: require('../../static/img/help.png'),
+						leftPic: require('../../static/img/user/help.png'),
 						text: '帮助中心',
 						rightPic: require('../../static/img/common/arrowRight.png')
 					},
 					{
-						leftPic: require('../../static/img/banben.png'),
+						leftPic: require('../../static/img/user/banben.png'),
 						text: '版本',
 						rightPic: require('../../static/img/common/arrowRight.png')
 					}
@@ -126,7 +126,7 @@
 				this.$api.getUserInfo({}, (res) => {
 					if (res.data.type == 'ok') {
 						this.userInfo = res.data.message.baseInfo;
-						uni.setStorageSync('user_Info', res.data.message); //存储用户信息
+						uni.setStorageSync('user_info', res.data.message); //存储用户信息
 						uni.stopPullDownRefresh(); //停止下拉刷新动画
 					}
 				})

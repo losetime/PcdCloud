@@ -9,7 +9,6 @@
 				</view>
 				<view class="ft12 mb10"></view>
 				<view class="ft18 bold" style="margin-top: 50upx;">{{round(userInfo.user_total_balance,2)}} PCD</view>
-
 			</view>
 
 		</view>

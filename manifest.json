@@ -96,9 +96,38 @@
             },
             "splashscreen" : {
                 "android" : {
-                    "hdpi" : "static/img/common/startUp.png",
-                    "xhdpi" : "static/img/common/startUp.png",
-                    "xxhdpi" : "static/img/common/startUp.png"
+                    "hdpi" : "static/img/common/startUp.9.png",
+                    "xhdpi" : "static/img/common/startUp.9.png",
+                    "xxhdpi" : "static/img/common/startUp.9.png"
+                },
+                "ios" : {
+                    "iphone" : {
+                        "portrait-896h@3x" : "static/img/common/startUp.png",
+                        "landscape-896h@3x" : "static/img/common/startUp.png",
+                        "portrait-896h@2x" : "static/img/common/startUp.png",
+                        "landscape-896h@2x" : "static/img/common/startUp.png",
+                        "iphonex" : "static/img/common/startUp.png",
+                        "iphonexl" : "static/img/common/startUp.png",
+                        "retina55" : "static/img/common/startUp.png",
+                        "retina55l" : "static/img/common/startUp.png",
+                        "retina47" : "static/img/common/startUp.png",
+                        "retina47l" : "static/img/common/startUp.png",
+                        "retina40" : "static/img/common/startUp.png",
+                        "retina40l" : "static/img/common/startUp.png",
+                        "retina35" : "static/img/common/startUp.png"
+                    },
+                    "ipad" : {
+                        "portrait-1366h@2x" : "static/img/common/startUp.png",
+                        "landscape-1366h@2x" : "static/img/common/startUp.png",
+                        "portrait-1194h@2" : "static/img/common/startUp.png",
+                        "landscape7" : "static/img/common/startUp.png",
+                        "portrait7" : "static/img/common/startUp.png",
+                        "landscape-retina7" : "static/img/common/startUp.png",
+                        "portrait-retina7" : "static/img/common/startUp.png",
+                        "landscape-1112h@2x" : "static/img/common/startUp.png",
+                        "portrait-1112h@2x" : "static/img/common/startUp.png",
+                        "landscape-1194h@2x" : "static/img/common/startUp.png"
+                    }
                 }
             }
         }
